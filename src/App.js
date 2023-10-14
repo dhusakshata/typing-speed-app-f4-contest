@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import TypingBox from './components/TypingBox';
+import Navbar from './components/Navbar';
+import Login from './components/User/login';
+import Signup from './components/User/signup';
 import './App.css';
 
 function App() {
+  const [showWords, setShowWords] = useState(false);
+
+  const handleUserIconClick = () => {
+    setShowWords(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar onUserIconClick={handleUserIconClick} />
+      <TypingBox />
+      {showWords && (
+        <div>
+          <span onClick={() => setShowWords(false)}>Login</span>
+          <span onClick={() => setShowWords(false)}>Signup</span>
+        </div>
+      )}
+      <Login />
+      <Signup />
     </div>
   );
 }
