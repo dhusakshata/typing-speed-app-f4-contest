@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import TypingBox from './components/TypingBox';
 import Navbar from './components/Navbar';
@@ -6,24 +7,20 @@ import Signup from './components/User/signup';
 import './App.css';
 
 function App() {
-  const [showWords, setShowWords] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
 
   const handleUserIconClick = () => {
-    setShowWords(true);
+    setShowLogin(true);
+    setShowSignup(true);
   };
 
   return (
     <div className="App">
       <Navbar onUserIconClick={handleUserIconClick} />
       <TypingBox />
-      {showWords && (
-        <div>
-          <span onClick={() => setShowWords(false)}>Login</span>
-          <span onClick={() => setShowWords(false)}>Signup</span>
-        </div>
-      )}
-      <Login />
-      <Signup />
+      {showLogin && <Login />}
+      {showSignup && <Signup />}
     </div>
   );
 }
