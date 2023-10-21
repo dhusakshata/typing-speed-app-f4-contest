@@ -6,6 +6,7 @@ import ScoreSummary from './components/ScoreSummary';
 import Footer from './components/Footer';
 import Login from './components/User/login';
 import Signup from './components/User/signup';
+import './App.css';
 
 function App() {
   return (

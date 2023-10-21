@@ -32,7 +32,7 @@ const TypingTest = () => {
   };
 
   return (
-    <div>
+    <div className='typingtest'>
       <h2>Typing Test</h2>
       {testEnded ? (
         <div>
@@ -45,7 +45,7 @@ const TypingTest = () => {
           <textarea
             value={inputText}
             onChange={handleInputChange}
-            placeholder="Start typing here..."
+            placeholder="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "
             disabled={testEnded}
           />
         </div>

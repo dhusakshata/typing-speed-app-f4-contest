@@ -10,10 +10,14 @@ const Navbar = () => {
   };
 
   return (
+    
     <div className='navsection'>
+
+<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <h1>TypeCat</h1>
       <img src={usericon} alt="user" onClick={toggleLinks} />
 
+</div>
       {showLinks && (
         <div className="nav-links">
           <Link to="/login">Login</Link>
