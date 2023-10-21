@@ -1,27 +1,26 @@
-// App.js
-import React, { useState } from 'react';
-import TypingBox from './components/TypingBox';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import TypingTest from './components/TypingTest';
+import ScoreSummary from './components/ScoreSummary';
+import Footer from './components/Footer';
 import Login from './components/User/login';
 import Signup from './components/User/signup';
-import './App.css';
 
 function App() {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false);
-
-  const handleUserIconClick = () => {
-    setShowLogin(true);
-    setShowSignup(true);
-  };
-
   return (
-    <div className="App">
-      <Navbar onUserIconClick={handleUserIconClick} />
-      <TypingBox />
-      {showLogin && <Login />}
-      {showSignup && <Signup />}
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<TypingTest />} />
+          <Route path="/score-summary" element={<ScoreSummary />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

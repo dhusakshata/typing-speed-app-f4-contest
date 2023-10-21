@@ -17,9 +17,30 @@ const Signup = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   
+    
+    // Here you can add logic to submit the signup data to the server for user registration
+    try {
+      // Example: Send signup data to the server
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+      
+      // Handle the server response here, e.g., redirect the user if registration is successful
+      if (response.status === 201) {
+        // Redirect the user to the login page or another page
+      } else {
+        // Handle registration error, e.g., show an error message
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error('Signup error:', error);
+    }
   };
 
   return (
@@ -58,4 +79,5 @@ const Signup = () => {
     </div>
   );
 };
+
 export default Signup;

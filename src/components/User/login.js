@@ -12,9 +12,30 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
+   
+    try {
+      // Example: Send login data to the server
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      
+      
+      if (response.status === 200) {
+       
+      } else {
+        
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error('Login error:', error);
+    }
   };
 
   return (
